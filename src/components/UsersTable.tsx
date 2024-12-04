@@ -44,7 +44,7 @@ const UsersTable = ({ data }: { data: User[] }) => {
         {data.map((user) => (
           <TableRow key={user.id} className="grid grid-cols-4">
             <TableCell className="flex items-center">
-              <span className="truncate">{user.name}</span>
+              <span className={`truncate ${user.banned ? "text-red-500" : ""}`}>{user.name}</span>
             </TableCell>
             <TableCell className="flex items-center">
               {user.gender === "male" ? (
