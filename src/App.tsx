@@ -3,18 +3,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs"
 const App = () => {
   return (
     <div className="w-[800px] mx-auto mt-4">
-      <Tabs defaultValue="products" className="w-full">
+      <Tabs defaultValue="users" className="w-full">
         <nav>
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="products">Products</TabsTrigger>
-            <TabsTrigger value="categories">Categories</TabsTrigger>
+            <TabsTrigger value="users">Users</TabsTrigger>
+            <TabsTrigger value="animals">Animals</TabsTrigger>
           </TabsList>
         </nav>
-        <TabsContent value="products">
-          {/* <ProductPage /> */}
+        <TabsContent value="users">
+          {/* <UsersPage /> */}
         </TabsContent>
-        <TabsContent value="categories">
-          {/* <CategoriesPage />  */}
+        <TabsContent value="animals">
+          {/* <AnimalsPage />  */}
         </TabsContent>
       </Tabs>
     </div>
