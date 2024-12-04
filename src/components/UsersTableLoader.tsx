@@ -1,14 +1,22 @@
 import { Skeleton } from "./ui/skeleton";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./ui/table";
 
-const UserTableLoader = () => {
+const UsersTableLoader = () => {
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="">Name</TableHead>
-          <TableHead className="">Gender</TableHead>
-          <TableHead className="">Banned</TableHead>
+          <TableHead>Name</TableHead>
+          <TableHead>Gender</TableHead>
+          <TableHead>Banned</TableHead>
+          <TableHead>Actions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -35,4 +43,4 @@ const UserTableLoader = () => {
   );
 };
 
-export default UserTableLoader;
+export default UsersTableLoader;

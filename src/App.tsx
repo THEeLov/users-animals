@@ -1,4 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs"
+import AnimalsPage from "./pages/AnimalsPage"
 import UsersPage from "./pages/UsersPage"
 
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
           <UsersPage />
         </TabsContent>
         <TabsContent value="animals">
-          {/* <AnimalsPage />  */}
+          <AnimalsPage /> 
         </TabsContent>
       </Tabs>
     </div>

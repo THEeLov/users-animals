@@ -1,12 +1,12 @@
+import AnimalsTable from "@/components/AnimalsTable";
+import AnimalTableLoader from "@/components/AnimalTableLoader";
 import { Button } from "@/components/ui/button";
 import PageTitle from "@/components/ui/PageTitle";
-import UsersTable from "@/components/UsersTable";
-import UsersTableLoader from "@/components/UsersTableLoader";
-import { useUsers } from "@/hooks/useUsers";
+import { useAnimals } from "@/hooks/useAnimals";
 import { useState } from "react";
 
-const UsersPage = () => {
-  const { data: users, isFetching } = useUsers();
+const AnimalsPage = () => {
+  const { data: animals, isFetching } = useAnimals();
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState<boolean>(false);
 
   const handleDialogOpen = () => setIsCreateDialogOpen(true);
@@ -15,13 +15,13 @@ const UsersPage = () => {
   return (
     <main className="py-4">
       <section className="flex">
-        <PageTitle className="grow">Users</PageTitle>
-        <Button onClick={handleDialogOpen}>Add user</Button>
+        <PageTitle className="grow">Animals</PageTitle>
+        <Button onClick={handleDialogOpen}>Add animal</Button>
       </section>
-      {users && !isFetching ? (
-        <UsersTable data={users} />
+      {animals && !isFetching ? (
+        <AnimalsTable data={animals} />
       ) : (
-        <UsersTableLoader />
+        <AnimalTableLoader />
       )}
       {/* {isCreateDialogOpen && (
         <CreateUserDialog onClose={handleDialogClose} />
@@ -30,4 +30,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default AnimalsPage;
