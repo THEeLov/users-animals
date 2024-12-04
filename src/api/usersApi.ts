@@ -28,3 +28,18 @@ export const patchSingle = async (
   const resp = await axiosInstance.patch(`${userId}`, userData);
   return resp.data;
 };
+
+export const deleteSingle = async (userId: string): Promise<void> => {
+  const resp = await axiosInstance.delete(`${userId}`);
+  return resp.data;
+};
+
+const UserApi = {
+  getSingle,
+  getAll,
+  createSingle,
+  patchSingle,
+  deleteSingle,
+};
+
+export default UserApi;
