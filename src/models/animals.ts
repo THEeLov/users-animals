@@ -10,5 +10,4 @@ export type Animal = BaseModelId & {
 
 export type AnimalCreate = Omit<Animal, "id">;
 
-// In this scenario user in only able to change the name of the animal maybe change later
-export type AnimalPatch = Omit<Animal, "id" | "type" | "age">;
+export type AnimalPatch = Omit<Animal, "id">;
