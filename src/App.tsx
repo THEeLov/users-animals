@@ -1,8 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs"
+import UsersPage from "./pages/UsersPage"
 
 const App = () => {
   return (
-    <div className="w-[800px] mx-auto mt-4">
+    <div className="max-w-[800px] mx-auto mt-4">
       <Tabs defaultValue="users" className="w-full">
         <nav>
           <TabsList className="grid w-full grid-cols-2">
@@ -11,7 +12,7 @@ const App = () => {
           </TabsList>
         </nav>
         <TabsContent value="users">
-          {/* <UsersPage /> */}
+          <UsersPage />
         </TabsContent>
         <TabsContent value="animals">
           {/* <AnimalsPage />  */}
