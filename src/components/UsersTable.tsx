@@ -13,6 +13,7 @@ import DeleteButton from "./ui/DeleteButton";
 import { IoIosMale } from "react-icons/io";
 import { IoFemaleOutline } from "react-icons/io5";
 import { IoMaleFemaleOutline } from "react-icons/io5";
+import BanButton from "./ui/BanButon";
 
 const UsersTable = ({ data }: { data: User[] }) => {
   const [editingUserId, setEditingUserId] = useState<string | null>(null);
@@ -55,11 +56,12 @@ const UsersTable = ({ data }: { data: User[] }) => {
               )}
             </TableCell>
             <TableCell className="flex items-center">
-              {user.banned ? "True" : "False"}
+              {user.banned ? "YES" : "NO"}
             </TableCell>
             <TableCell className="flex items-center justify-end space-x-2">
               <EditButton onClick={() => handleUserEdit(user.id)} />
               <DeleteButton onClick={() => handleUserDelete(user.id)} />
+              <BanButton onClick={() => handleUserBan(user.id)} />
             </TableCell>
           </TableRow>
         ))}

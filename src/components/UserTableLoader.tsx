@@ -26,6 +26,7 @@ const UserTableLoader = () => {
             <TableCell className="flex gap-3">
               <Skeleton className="w-[20px] h-[20px] my-1.5 rounded-full" />
               <Skeleton className="w-[20px] h-[20px] my-1.5 rounded-full" />
+              <Skeleton className="w-[20px] h-[20px] my-1.5 rounded-full" />
             </TableCell>
           </TableRow>
         ))}
