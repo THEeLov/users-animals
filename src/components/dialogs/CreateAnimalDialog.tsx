@@ -1,19 +1,19 @@
-import { useUserCreate } from "@/hooks/useUsers";
-import { useToast } from "../ui/use-toast";
-import { UserCreate } from "@/models/users";
+import { useAnimalCreate } from "@/hooks/useAnimals";
+import { AnimalCreate } from "@/models/animals";
 import { toastOnCreate, toastOnError } from "@/utilts";
+import AnimalForm from "../forms/AnimalForm";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
-import UserForm from "../forms/UserForm";
+import { useToast } from "../ui/use-toast";
 
-const CreateUserDialog = ({ onClose }: { onClose: () => void }) => {
+const CreateAnimalDialog = ({onClose} : {onClose: () => void}) => {
   const { toast } = useToast();
 
-  const { mutateAsync: createUser } = useUserCreate();
+  const { mutateAsync: createAnimal } = useAnimalCreate();
 
-  const handleSubmit = async (values: UserCreate) => {
+  const handleSubmit = async (values: AnimalCreate) => {
     try {
-      await createUser(values);
-      toast(toastOnCreate(values.name, "User"));
+      await createAnimal(values);
+      toast(toastOnCreate(values.name, "Animal"));
       onClose();
     } catch (e) {
       toast(toastOnError());
@@ -25,14 +25,13 @@ const CreateUserDialog = ({ onClose }: { onClose: () => void }) => {
     <Dialog open={true} onOpenChange={onClose}>
       <DialogContent className="overflow-auto w-[40rem] h-[30rem] max-h-[80vh] max-w-[80vw]">
         <DialogHeader>
-          <DialogTitle>Create new user</DialogTitle>
+          <DialogTitle>Create new Animal</DialogTitle>
           <DialogDescription>Click save when you're done.</DialogDescription>
         </DialogHeader>
-        <UserForm onSubmit={handleSubmit} />
+        <AnimalForm onSubmit={handleSubmit} />
       </DialogContent>
     </Dialog>
   );
-  
-};
+}
 
-export default CreateUserDialog;
+export default CreateAnimalDialog

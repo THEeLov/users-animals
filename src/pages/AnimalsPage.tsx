@@ -1,5 +1,6 @@
 import AnimalsTable from "@/components/AnimalsTable";
 import AnimalTableLoader from "@/components/AnimalTableLoader";
+import CreateAnimalDialog from "@/components/dialogs/CreateAnimalDialog";
 import { Button } from "@/components/ui/button";
 import PageTitle from "@/components/ui/PageTitle";
 import { useAnimals } from "@/hooks/useAnimals";
@@ -23,9 +24,9 @@ const AnimalsPage = () => {
       ) : (
         <AnimalTableLoader />
       )}
-      {/* {isCreateDialogOpen && (
-        <CreateUserDialog onClose={handleDialogClose} />
-      )} */}
+      {isCreateDialogOpen && (
+        <CreateAnimalDialog onClose={handleDialogClose} />
+      )}
     </main>
   );
 };
