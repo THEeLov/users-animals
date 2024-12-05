@@ -31,7 +31,7 @@ const UsersTable = ({ data }: { data: User[] }) => {
   return (
     <Table>
       <TableHeader>
-        <TableRow className="flex-grow grid grid-cols-4">
+        <TableRow className="flex-grow grid grid-cols-[1.5fr_1fr_1fr_1fr]">
           <TableHead className="flex items-center">Name</TableHead>
           <TableHead className="flex items-center">Gender</TableHead>
           <TableHead className="flex items-center">Banned</TableHead>
@@ -42,8 +42,8 @@ const UsersTable = ({ data }: { data: User[] }) => {
       </TableHeader>
       <TableBody>
         {data.map((user) => (
-          <TableRow key={user.id} className="grid grid-cols-4">
-            <TableCell className="flex items-center">
+          <TableRow key={user.id} className="grid grid-cols-[1.5fr_1fr_1fr_1fr]">
+            <TableCell className="flex items-center overflow-hidden">
               <span className={`truncate ${user.banned ? "text-red-500" : ""}`}>{user.name}</span>
             </TableCell>
             <TableCell className="flex items-center">
@@ -89,3 +89,4 @@ const UsersTable = ({ data }: { data: User[] }) => {
 };
 
 export default UsersTable;
+
