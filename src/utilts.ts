@@ -5,6 +5,11 @@ export const toastOnCreate = (title: string, name: string): Toast => ({
   description: `${name} ${title} was created on server!`,
 });
 
+export const toastOnPatch = (title: string, name: string): Toast => ({
+  title: `${name} created`,
+  description: `${name} ${title} was updated on server!`
+})
+
 export const toastOnDelete = (title: string, name: string): Toast => ({
   title: `${name} deleted`,
   description: `${name} ${title} was deleted on server!`

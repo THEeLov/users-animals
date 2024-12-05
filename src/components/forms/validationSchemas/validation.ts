@@ -3,7 +3,7 @@ import { z } from "zod";
 export const UserSchema = z.object({
   name: z.string().min(1, "Name is required"),
   gender: z.enum(["male", "female", "other"]),
-  banned: z.enum(["true" , "false"])
+  banned: z.boolean()
 });
 
 export type UserSchemaType = z.infer<typeof UserSchema>

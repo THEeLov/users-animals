@@ -30,12 +30,7 @@ const UserForm = ({
     values: UserSchemaType
   ) => {
     try {
-      const submitValues = {
-        ...values,
-        banned: values.banned === "true" ? true : false,
-      };
-
-      await onSubmit(submitValues);
+      await onSubmit(values);
     } catch (e) {
       console.error(e);
     }
@@ -90,10 +85,15 @@ const UserForm = ({
             control={control}
             render={({ field }) => (
               <RadioGroup
-                onValueChange={field.onChange}
-                value={field.value}
+                onValueChange={(value) => field.onChange(value === "true")}
                 className="flex flex-col space-y-1"
-                defaultValue={defaultValues?.banned}
+                defaultValue={
+                  defaultValues?.banned !== undefined
+                    ? defaultValues.banned
+                      ? "true"
+                      : "false"
+                    : undefined
+                }
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="true" id="banned-yes" />

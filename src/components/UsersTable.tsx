@@ -15,6 +15,7 @@ import { IoFemaleOutline } from "react-icons/io5";
 import { IoMaleFemaleOutline } from "react-icons/io5";
 import BanButton from "./ui/BanButon";
 import DeleteUserDialog from "./dialogs/DeleteUserDialog";
+import EditUserDialog from "./dialogs/EditUserDialog";
 
 const UsersTable = ({ data }: { data: User[] }) => {
   const [editingUserId, setEditingUserId] = useState<string | null>(null);
@@ -43,9 +44,14 @@ const UsersTable = ({ data }: { data: User[] }) => {
       </TableHeader>
       <TableBody>
         {data.map((user) => (
-          <TableRow key={user.id} className="grid grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <TableRow
+            key={user.id}
+            className="grid grid-cols-[1.5fr_1fr_1fr_1fr]"
+          >
             <TableCell className="flex items-center overflow-hidden">
-              <span className={`truncate ${user.banned ? "text-red-500" : ""}`}>{user.name}</span>
+              <span className={`truncate ${user.banned ? "text-red-500" : ""}`}>
+                {user.name}
+              </span>
             </TableCell>
             <TableCell className="flex items-center">
               {user.gender === "male" ? (
@@ -67,17 +73,19 @@ const UsersTable = ({ data }: { data: User[] }) => {
           </TableRow>
         ))}
       </TableBody>
+      {editingUserId !== null && (
+        <EditUserDialog
+          userId={editingUserId}
+          onClose={handleCloseEditDialog}
+        />
+      )}
       {deletingUserId !== null && (
         <DeleteUserDialog
           userId={deletingUserId}
           onClose={handleCloseDeleteDialog}
         />
       )}
-      {/* {editingUserId !== null && (
-        <EditUserDialog
-          userId={editingUserId}
-          onClose={handleCloseEditDialog}
-        />
+      {/* 
       )}
       {banningUserId !== null && (
         <BanUserDialog
@@ -90,4 +98,3 @@ const UsersTable = ({ data }: { data: User[] }) => {
 };
 
 export default UsersTable;
-

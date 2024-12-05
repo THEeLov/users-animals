@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const useUser = (id: string) => {
   return useQuery({
-    queryKey: ["user"],
+    queryKey: ["user", id],
     queryFn: () => UserApi.getSingle(id),
   });
 };
