@@ -4,7 +4,7 @@ This is the frontend of a dynamic web application designed to manage **users** a
 
 ## 🌐 Deployment on Vercel
 
-The frontend is deployed on **Vercel**, ensuring fast and scalable hosting. Check out the live version here: [User & Animal Management Frontend](https://users-animals-7pv355wtu-filip-koziks-projects.vercel.app)
+The frontend is deployed on **Vercel**, ensuring fast and scalable hosting. Check out the live version here: [User & Animal Management Frontend](https://users-animals.vercel.app/)
 
 ## 🚀 Features
 
