@@ -1,3 +1,4 @@
+import CreateUserDialog from "@/components/dialogs/CreateUserDialog";
 import { Button } from "@/components/ui/button";
 import PageTitle from "@/components/ui/PageTitle";
 import UsersTable from "@/components/UsersTable";
@@ -23,9 +24,9 @@ const UsersPage = () => {
       ) : (
         <UsersTableLoader />
       )}
-      {/* {isCreateDialogOpen && (
+      {isCreateDialogOpen && (
         <CreateUserDialog onClose={handleDialogClose} />
-      )} */}
+      )}
     </main>
   );
 };
