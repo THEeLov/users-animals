@@ -32,7 +32,7 @@ const UserForm = ({
     try {
       const submitValues = {
         ...values,
-        banned: values.name === "true" ? true : false,
+        banned: values.banned === "true" ? true : false,
       };
 
       await onSubmit(submitValues);
@@ -63,7 +63,7 @@ const UserForm = ({
                 onValueChange={field.onChange}
                 value={field.value}
                 className="flex flex-col space-y-1"
-                defaultValue={defaultValues?.gender || "male"}
+                defaultValue={defaultValues?.gender}
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="male" id="male" />
@@ -93,7 +93,7 @@ const UserForm = ({
                 onValueChange={field.onChange}
                 value={field.value}
                 className="flex flex-col space-y-1"
-                defaultValue={defaultValues?.banned || "true"}
+                defaultValue={defaultValues?.banned}
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="true" id="banned-yes" />
@@ -112,7 +112,7 @@ const UserForm = ({
 
       <section className="flex justify-end">
         {!isSubmitting ? (
-          <Button type="submit">Save changes</Button>
+          <Button type="submit">Save</Button>
         ) : (
           <ButtonLoading />
         )}
