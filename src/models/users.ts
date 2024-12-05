@@ -11,3 +11,5 @@ export type User = BaseModelId & {
 export type UserCreate = Omit<User, "id">;
 
 export type UserPatch = Omit<User, "id">
+
+export type UserBan = Omit<UserPatch, "name" | "gender">

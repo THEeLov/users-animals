@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { User, UserCreate, UserPatch } from "../models/users";
+import { User, UserBan, UserCreate, UserPatch } from "../models/users";
 
 const axiosInstance = axios.create({
   baseURL: "https://inqool-interview-api.vercel.app/api/users",
@@ -29,6 +29,11 @@ export const patchSingle = async (
   return resp.data;
 };
 
+export const banSingle = async (userId: string, userData: UserBan) => {
+  const resp = await axiosInstance.patch(`${userId}`, userData);
+  return resp.data;
+}
+
 export const deleteSingle = async (userId: string): Promise<void> => {
   const resp = await axiosInstance.delete(`${userId}`);
   return resp.data;
@@ -40,6 +45,7 @@ const UserApi = {
   createSingle,
   patchSingle,
   deleteSingle,
+  banSingle,
 };
 
 export default UserApi;

@@ -1,4 +1,4 @@
-import { UserCreate, UserPatch } from "../models/users";
+import { UserBan, UserCreate, UserPatch } from "../models/users";
 import UserApi from "../api/usersApi";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -35,6 +35,16 @@ export const useUserPatch = (id: string) => {
     },
   });
 };
+
+export const useUserBan = (id: string) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: UserBan) => UserApi.banSingle(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+    },
+  });
+}
 
 export const useUserDelete = (id: string) => {
   const queryClient = useQueryClient();

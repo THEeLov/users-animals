@@ -16,6 +16,7 @@ import { IoMaleFemaleOutline } from "react-icons/io5";
 import BanButton from "./ui/BanButon";
 import DeleteUserDialog from "./dialogs/DeleteUserDialog";
 import EditUserDialog from "./dialogs/EditUserDialog";
+import BanUserDialog from "./dialogs/BanUserDialog";
 
 const UsersTable = ({ data }: { data: User[] }) => {
   const [editingUserId, setEditingUserId] = useState<string | null>(null);
@@ -85,14 +86,10 @@ const UsersTable = ({ data }: { data: User[] }) => {
           onClose={handleCloseDeleteDialog}
         />
       )}
-      {/* 
-      )}
+
       {banningUserId !== null && (
-        <BanUserDialog
-          userId={deletingUserId}
-          onClose={handleCloseBanDialog}
-        />
-      )} */}
+        <BanUserDialog userId={banningUserId} onClose={handleCloseBanDialog} />
+      )}
     </Table>
   );
 };
