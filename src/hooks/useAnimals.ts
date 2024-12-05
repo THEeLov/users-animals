@@ -32,6 +32,7 @@ export const useAnimalPatch = (id: string) => {
     mutationFn: (payload: AnimalPatch) => AnimalApi.patchSingle(id, payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["animals"] });
+      queryClient.invalidateQueries({ queryKey: ["animal", id] });
     },
   });
 };

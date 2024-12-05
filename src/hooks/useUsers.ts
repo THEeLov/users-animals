@@ -32,6 +32,7 @@ export const useUserPatch = (id: string) => {
     mutationFn: (payload: UserPatch) => UserApi.patchSingle(id, payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["users"] });
+      queryClient.invalidateQueries({ queryKey: ["user", id] });
     },
   });
 };
@@ -42,6 +43,7 @@ export const useUserBan = (id: string) => {
     mutationFn: (payload: UserBan) => UserApi.banSingle(id, payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["users"] });
+      queryClient.invalidateQueries({ queryKey: ["user", id] });
     },
   });
 }
