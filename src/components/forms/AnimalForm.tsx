@@ -84,7 +84,6 @@ const AnimalForm = ({
             id="age"
             type="number"
             {...register("age", { valueAsNumber: true })}
-            defaultValue={0}
           />
           <FormError>{errors.age?.message}</FormError>
         </div>

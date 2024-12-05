@@ -14,6 +14,7 @@ import { FaQuestion } from "react-icons/fa6";
 import EditButton from "./ui/EditButton";
 import DeleteButton from "./ui/DeleteButton";
 import DeleteAnimalDialog from "./dialogs/DeleteAnimalDialog";
+import EditAnimalDialog from "./dialogs/EditAnimalDialog";
 
 const AnimalsTable = ({ data }: { data: Animal[] }) => {
   const [editingAnimalId, setEditingAnimalId] = useState<string | null>(null);
@@ -23,10 +24,6 @@ const AnimalsTable = ({ data }: { data: Animal[] }) => {
   const [deletingAnimalId, setDeletingAnimalId] = useState<string | null>(null);
   const handleAnimalDelete = (id: string) => setDeletingAnimalId(id);
   const handleCloseDeleteDialog = () => setDeletingAnimalId(null);
-
-  const [banningAnimalId, setBanningAnimalId] = useState<string | null>(null);
-  const handleAnimalBan = (id: string) => setBanningAnimalId(id);
-  const handleCloseBanDialog = () => setBanningAnimalId(null);
 
   return (
     <Table>
@@ -71,18 +68,12 @@ const AnimalsTable = ({ data }: { data: Animal[] }) => {
           onClose={handleCloseDeleteDialog}
         />
       )}
-      {/* {editingAnimalId !== null && (
+      {editingAnimalId !== null && (
         <EditAnimalDialog
-          AnimalId={editingAnimalId}
+          animalId={editingAnimalId}
           onClose={handleCloseEditDialog}
         />
       )}
-      {banningAnimalId !== null && (
-        <BanAnimalDialog
-          AnimalId={deletingAnimalId}
-          onClose={handleCloseBanDialog}
-        />
-      )} */}
     </Table>
   );
 };

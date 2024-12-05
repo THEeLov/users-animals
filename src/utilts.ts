@@ -1,4 +1,4 @@
-import { useToast, type Toast } from "./components/ui/use-toast";
+import { type Toast } from "./components/ui/use-toast";
 
 export const toastOnCreate = (title: string, name: string): Toast => ({
   title: `${name} created`,
