@@ -14,6 +14,7 @@ import { IoIosMale } from "react-icons/io";
 import { IoFemaleOutline } from "react-icons/io5";
 import { IoMaleFemaleOutline } from "react-icons/io5";
 import BanButton from "./ui/BanButon";
+import DeleteUserDialog from "./dialogs/DeleteUserDialog";
 
 const UsersTable = ({ data }: { data: User[] }) => {
   const [editingUserId, setEditingUserId] = useState<string | null>(null);
@@ -66,16 +67,16 @@ const UsersTable = ({ data }: { data: User[] }) => {
           </TableRow>
         ))}
       </TableBody>
-      {/* {editingUserId !== null && (
-        <EditUserDialog
-          userId={editingUserId}
-          onClose={handleCloseEditDialog}
-        />
-      )}
       {deletingUserId !== null && (
         <DeleteUserDialog
           userId={deletingUserId}
           onClose={handleCloseDeleteDialog}
+        />
+      )}
+      {/* {editingUserId !== null && (
+        <EditUserDialog
+          userId={editingUserId}
+          onClose={handleCloseEditDialog}
         />
       )}
       {banningUserId !== null && (
