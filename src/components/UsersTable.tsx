@@ -1,5 +1,5 @@
 import { User } from "@/models/users";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Table,
   TableBody,
@@ -17,6 +17,7 @@ import BanButton from "./ui/BanButon";
 import DeleteUserDialog from "./dialogs/DeleteUserDialog";
 import EditUserDialog from "./dialogs/EditUserDialog";
 import BanUserDialog from "./dialogs/BanUserDialog";
+import { TableFilter } from "./ui/TableFilter";
 
 const UsersTable = ({ data }: { data: User[] }) => {
   const [editingUserId, setEditingUserId] = useState<string | null>(null);
@@ -31,11 +32,26 @@ const UsersTable = ({ data }: { data: User[] }) => {
   const handleUserBan = (id: string) => setBanningUserId(id);
   const handleCloseBanDialog = () => setBanningUserId(null);
 
+  const [nameFilter, setNameFilter] = useState<string>("");
+  const filteredData = useMemo(() => {
+    return data.filter((user) =>
+      user.name.toLowerCase().includes(nameFilter.toLowerCase())
+    );
+  }, [data, nameFilter]);
+
   return (
     <Table>
       <TableHeader>
         <TableRow className="flex-grow grid grid-cols-[1.5fr_1fr_1fr_1fr]">
-          <TableHead className="flex items-center">Name</TableHead>
+          <TableHead className="flex flex-col justify-center gap-2 h-auto">
+            <span className="mr-2">Name</span>
+            <TableFilter
+              value={nameFilter}
+              onChange={setNameFilter}
+              placeholder="Filter names..."
+              ariaLabel="names"
+            />
+          </TableHead>
           <TableHead className="flex items-center">Gender</TableHead>
           <TableHead className="flex items-center">Banned</TableHead>
           <TableHead className="flex items-center justify-end">
@@ -44,7 +60,7 @@ const UsersTable = ({ data }: { data: User[] }) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map((user) => (
+        {filteredData.map((user) => (
           <TableRow
             key={user.id}
             className="grid grid-cols-[1.5fr_1fr_1fr_1fr]"
