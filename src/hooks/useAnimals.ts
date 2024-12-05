@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const useAnimal = (id: string) => {
   return useQuery({
-    queryKey: ["animal"],
+    queryKey: ["animal", id],
     queryFn: () => AnimalApi.getSingle(id),
   });
 };
@@ -36,7 +36,7 @@ export const useAnimalPatch = (id: string) => {
   });
 };
 
-export const userAnimalDelete = (id: string) => {
+export const useAnimalDelete = (id: string) => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: () => AnimalApi.deleteSingle(id),

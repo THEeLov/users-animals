@@ -13,6 +13,7 @@ import { FaCat } from "react-icons/fa";
 import { FaQuestion } from "react-icons/fa6";
 import EditButton from "./ui/EditButton";
 import DeleteButton from "./ui/DeleteButton";
+import DeleteAnimalDialog from "./dialogs/DeleteAnimalDialog";
 
 const AnimalsTable = ({ data }: { data: Animal[] }) => {
   const [editingAnimalId, setEditingAnimalId] = useState<string | null>(null);
@@ -64,16 +65,16 @@ const AnimalsTable = ({ data }: { data: Animal[] }) => {
           </TableRow>
         ))}
       </TableBody>
+      {deletingAnimalId !== null && (
+        <DeleteAnimalDialog
+          animalId={deletingAnimalId}
+          onClose={handleCloseDeleteDialog}
+        />
+      )}
       {/* {editingAnimalId !== null && (
         <EditAnimalDialog
           AnimalId={editingAnimalId}
           onClose={handleCloseEditDialog}
-        />
-      )}
-      {deletingAnimalId !== null && (
-        <DeleteAnimalDialog
-          AnimalId={deletingAnimalId}
-          onClose={handleCloseDeleteDialog}
         />
       )}
       {banningAnimalId !== null && (
