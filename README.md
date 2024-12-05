@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+# 🐾 User & Animal Management Web Application - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend of a dynamic web application designed to manage **users** and **animals**. It interfaces with a simple REST API, providing the ability to fetch, add, edit, ban, and filter both users and animals. Built with **React** and **TypeScript**, the application offers a sleek and interactive user experience.
 
-Currently, two official plugins are available:
+## 🌐 Deployment on Vercel
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The frontend is deployed on **Vercel**, ensuring fast and scalable hosting. Check out the live version here: [User & Animal Management Frontend](https://users-animals-7pv355wtu-filip-koziks-projects.vercel.app)
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Interactive UI**: Designed with Shadcn components and styled using Tailwind CSS for a modern, responsive design.
+- **Efficient Data Fetching**: Uses **TanStack Query** (React Query) and **Axios** for seamless interaction with the REST API.
+- **User & Animal Management**: Allows users to filter, add, edit, and ban users and animals.
+- **Form Handling**: Managed with **React Hook Form**, validated with **Zod** for type-safe and reliable forms.
+- **Client-Side Fetching**: All data fetching is done client-side to ensure better performance and user experience.
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Technologies Used
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **React**: Library for building user interfaces.
+- **TypeScript**: Adds type safety to JavaScript, ensuring fewer bugs and better development experience.
+- **Vite**: Development environment for fast and efficient project setup and build.
+- **Shadcn**: UI component library providing modern, accessible design elements.
+- **Tailwind CSS**: Utility-first CSS framework for custom and responsive styling.
+- **TanStack Query (React Query)**: Data fetching, caching, and synchronization library.
+- **Axios**: HTTP client for making API requests to the backend.
+- **React Router**: Provides routing and navigation for a smooth, single-page application experience.
+- **Zod**: Type-safe schema validation for data consistency across the app.
+- **React Hook Form**: Simplifies form management and validation.
